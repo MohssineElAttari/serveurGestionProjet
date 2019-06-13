@@ -22,17 +22,17 @@ public class AnneeScolaire {
 	private Date annee;
 	
 	@OneToMany(mappedBy = "anneeScoDep")//
-	private List<DepartementChef> departementChef;//
-	@OneToMany(mappedBy = "anneeScoEnsJury")//
-	private List<EnseignantJury> enseignantJury;//
-	@OneToMany(mappedBy = "anneeScoEtuProj")//
-	private List<EtudiantProjet> etudiantProjet;//
+	private List departementChef;
+	@OneToMany(mappedBy = "anneeScoEnsJury")
+	private List enseignantJury;
+	@OneToMany(mappedBy = "anneeScoEtuProj")
+	private List etudiantProjet;
 	@OneToMany(mappedBy = "anneeScoFilChef")
-	private List<FiliereChef> filiereChef;
+	private List filiereChef;
 	@OneToMany(mappedBy = "anneeScoProNote")//
-	private List<ProjetNote> projetNote;//
-	@OneToMany(mappedBy = "anneeScoEnsNote")//
-	private List<EnseignantNote> enseignantnote;//
+	private List projetNote;
+	@OneToMany(mappedBy = "anneeScoEnsNote")
+	private List enseignantnote;
 	
 	public Long getId() {
 		return id;

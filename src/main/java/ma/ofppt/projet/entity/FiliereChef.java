@@ -1,20 +1,24 @@
 package ma.ofppt.projet.entity;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 public class FiliereChef {
-	@Embedded
+	@EmbeddedId
 	private FiliereChefKey id;
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "filier", referencedColumnName = "filiere", insertable = false, updatable = false)
+	@JoinColumn(name = "filiere_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private Filiere filiere;
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "chef", referencedColumnName = "chef", insertable = false, updatable = false)
+	@JoinColumn(name = "chef_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private Enseignant enseignant;
 
+	@ManyToOne
+	@JoinColumn(name = "anneeScolaire_id")
+	private AnneeScolaire anneeScoFilChef;
+	
 	public FiliereChef() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class Criteres {
 @Id
 @GeneratedValue(strategy= GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	private String libelle;
 	private Integer min;
 	private Integer max;
@@ -29,10 +29,10 @@ public class Criteres {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getLibelle() {
@@ -53,9 +53,8 @@ public class Criteres {
 	public void setMax(Integer max) {
 		this.max = max;
 	}
-	public Criteres(Integer id, String libelle, Integer min, Integer max) {
+	public Criteres(String libelle, Integer min, Integer max) {
 		super();
-		this.id = id;
 		this.libelle = libelle;
 		this.min = min;
 		this.max = max;

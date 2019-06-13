@@ -17,8 +17,7 @@ import javax.persistence.ManyToOne;
 public class Projet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	
+	private Long id;
 	private String theme;
 	private String description;
 	private Integer etat;
@@ -49,22 +48,23 @@ public class Projet {
 	@ManyToMany(mappedBy = "avoirChoisi")
 	Set<Etudiant> choisir;
 	
-	public Projet(Integer id, String theme, String description, Integer etat) {
+	
+	public Projet() {
 		super();
-		this.id = id;
+		// TODO Auto-generated constructor stub
+	}
+	public Projet(String theme, String description, Integer etat) {
+		super();
 		this.theme = theme;
 		this.description = description;
 		this.etat = etat;
 	}
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public Projet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public void setId(Integer id) {
+	
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getTheme() {

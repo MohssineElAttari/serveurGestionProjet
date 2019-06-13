@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 public class Note {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-	private Float note;
+	private Long note;
 
 	@ManyToOne
 	@JoinColumn(name="critereId")
@@ -27,11 +27,11 @@ public class Note {
 	Set<Projet> AvoirNote;
 	
 	
-public Float getNote() {
+public Long getNote() {
 	return note;
 }
 
-public void setNote(Float note) {
+public void setNote(Long note) {
 	this.note = note;
 }
 
@@ -40,8 +40,4 @@ public Note() {
 	// TODO Auto-generated constructor stub
 }
 
-public Note(Float note) {
-	super();
-	this.note = note;
-}
 }

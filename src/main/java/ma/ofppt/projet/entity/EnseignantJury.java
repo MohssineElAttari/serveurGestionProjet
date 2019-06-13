@@ -7,9 +7,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
 @Entity
-public class RoleJury {
+public class EnseignantJury {
 	@EmbeddedId
-	RoleJuryKey	id;
+	EnseignantJuryKey	id;
 	
 	@ManyToOne
 	@MapsId("enseignant_id")
@@ -25,13 +25,17 @@ public class RoleJury {
 	@JoinColumn(name="anneeScolaire_id")
 	private AnneeScolaire anneeScoEnsJury;
 	
+	@ManyToOne
+	@JoinColumn(name="anneeScolaire_id")
+	private AnneeScolaire anneeScoEtuProj;
+	
 	String role;
 
-	public RoleJuryKey getId() {
+	public EnseignantJuryKey getId() {
 		return id;
 	}
 
-	public void setId(RoleJuryKey id) {
+	public void setId(EnseignantJuryKey id) {
 		this.id = id;
 	}
 
@@ -59,7 +63,7 @@ public class RoleJury {
 		this.role = role;
 	}
 
-	public RoleJury(RoleJuryKey id, Enseignant enseignant, Jury jury, String role) {
+	public EnseignantJury(EnseignantJuryKey id, Enseignant enseignant, Jury jury, String role) {
 		super();
 		this.id = id;
 		this.enseignant = enseignant;
@@ -67,7 +71,7 @@ public class RoleJury {
 		this.role = role;
 	}
 
-	public RoleJury() {
+	public EnseignantJury() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

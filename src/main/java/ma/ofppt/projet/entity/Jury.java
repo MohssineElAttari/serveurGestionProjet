@@ -21,7 +21,7 @@ public class Jury {
 	private List<Projet> projet;
 	
 	@OneToMany(mappedBy = "jury")
-	Set<RoleJury> roles;
+	Set<EnseignantJury> roles;
 	
 	public Jury() {
 		super();

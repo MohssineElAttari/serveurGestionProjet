@@ -23,10 +23,10 @@ public class Filiere  {
 	private String libelle;
 	
 	@ManyToOne
-	@JoinColumn(name="departementId")
+	@JoinColumn(name="departement_id")
 	private Departement departement;
 	
-	@OneToMany(mappedBy = "filiere")
+	@OneToMany(mappedBy = "filiere_id")
 	private List<Niveau> niveau;
 	
 	@ManyToMany

@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 public class Session {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	private String libelle;
 	
 	@OneToMany(mappedBy = "session")
@@ -21,19 +21,18 @@ public class Session {
 	@OneToMany(mappedBy = "session")
 	private List<Criteres> criteres;
 	
-	public Session(Integer id, String libelle) {
+	public Session(String libelle) {
 		super();
-		this.id = id;
 		this.libelle = libelle;
 	}
 	public Session() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getLibelle() {

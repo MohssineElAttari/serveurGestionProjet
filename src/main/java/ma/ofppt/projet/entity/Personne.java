@@ -3,6 +3,7 @@ package ma.ofppt.projet.entity;
 import java.sql.Date;
 
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +12,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import ch.qos.logback.classic.db.names.TableName;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

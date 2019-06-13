@@ -18,7 +18,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @PrimaryKeyJoinColumn(name="enseignantId")
 public class Enseignant extends Personne {
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	private Date dateEmbauche;
 	private String fonction;
 	private String grade;
@@ -27,7 +26,7 @@ public class Enseignant extends Personne {
 	private List<Projet> projet;
 	
 	@OneToMany(mappedBy = "enseignant")
-	Set<RoleJury> roles;
+	Set<EnseignantJury> roles;
 		
 	@ManyToMany(mappedBy = "avoirChefDepartement")
 	Set<Departement> chef;
@@ -56,9 +55,9 @@ public class Enseignant extends Personne {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Enseignant(Long id, Number matricule, String nom, String prenom, Date date_naissance, String adresse,
+	public Enseignant(Number matricule, String nom, String prenom, Date date_naissance, String adresse,
 			Number tel, String statut) {
-		super(id, matricule, nom, prenom, date_naissance, adresse, tel, statut);
+		super(matricule, nom, prenom, date_naissance, adresse, tel, statut);
 		// TODO Auto-generated constructor stub
 	}
 	
