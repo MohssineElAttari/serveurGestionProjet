@@ -37,12 +37,12 @@ public class FiliereController {
 	}
 	
 	@RequestMapping(value="/filiere/find/{id}", method= RequestMethod.GET)
-	public Filiere findFiliere(@PathVariable int id) {
+	public Filiere findFiliere(@PathVariable Long id) {
 		return filiereService.findById(id);
 	}
 	
 	@RequestMapping(value="/filiere/delete/{id}",method= RequestMethod.DELETE )
-	public void deleteFiliere(@PathVariable int id) {
+	public void deleteFiliere(@PathVariable Long id) {
 		filiereService.delete(id);
 	}
 		

@@ -29,17 +29,14 @@ public class JuryService implements IDao<Jury> {
 
 	//FindJury By it's ID	
 	@Override
-	public Jury findById(int id) {
-			Optional<Jury> optionalJury = juryRepository.findById(id);
-				if(optionalJury.isPresent()) {
-					return optionalJury.get();
-					}
-			return null;
+	public Jury findById(Long id) {
+
+			return juryRepository.findById(id).get();
 		}
 		
 	//Delete Jury
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		juryRepository.deleteById(id);
 		/*list.remove(id);*/
 		}

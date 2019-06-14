@@ -12,39 +12,37 @@ import ma.ofppt.projet.entity.Projet;
 import ma.ofppt.projet.repository.ProjetRepository;
 
 @Service
-public class ProjetService implements IDao<Projet>{
-	@Autowired ProjetRepository projetRepository;
-		@Override
-		public List<Projet> getAll() {
-			List<Projet> projetList = new ArrayList<>();
-			projetRepository.findAll().forEach(projetList::add);
-			return projetList;
-		}
+public class ProjetService implements IDao<Projet> {
+	@Autowired
+	ProjetRepository projetRepository;
 
-		@Override
-		public Projet findById(int id) {
-			Optional<Projet> optionalProjet = projetRepository.findById(id);
-			if(optionalProjet.isPresent()) {
-				return optionalProjet.get();
-				}
-		return null;
-		}
+	@Override
+	public List<Projet> getAll() {
+		List<Projet> projetList = new ArrayList<>();
+		projetRepository.findAll();
+		return projetList;
+	}
 
-		@Override
-		public void create(Projet projet) {
-			projetRepository.save(projet);
-		}
+	@Override
+	public Projet findById(Long id) {
+		return projetRepository.findById(id).get();
+	}
 
-		@Override
-		public void update(Projet projet) {
-			projetRepository.save(projet);
-		
-		}
-		
-		@Override
-		public void delete(int id) {
-			projetRepository.deleteById(id);
-		
-		}
+	@Override
+	public void create(Projet projet) {
+		projetRepository.save(projet);
+	}
+
+	@Override
+	public void update(Projet projet) {
+		projetRepository.save(projet);
+
+	}
+
+	@Override
+	public void delete(Long id) {
+		projetRepository.deleteById(id);
+
+	}
 
 }

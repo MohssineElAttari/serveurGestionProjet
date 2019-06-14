@@ -12,49 +12,46 @@ import ma.ofppt.projet.dao.IDao;
 import ma.ofppt.projet.entity.Niveau;
 import ma.ofppt.projet.repository.NiveauRepository;
 
-
 @Service
-public class NiveauService implements IDao<Niveau>{
+public class NiveauService implements IDao<Niveau> {
 	@Autowired
 	private NiveauRepository niveauRepository;
-	
-	//Return all Niveau
+
+	// Return all Niveau
 	@Override
 	public List<Niveau> getAll() {
 		List<Niveau> niveauList = new ArrayList<>();
 		niveauRepository.findAll().forEach(niveauList::add);
 		return niveauList;
-		/*return this.list;*/
-		}
+		/* return this.list; */
+	}
 
-	//Find Niveau By it's ID	
+	// Find Niveau By it's ID
 	@Override
-	public Niveau findById(int id) {
-			Optional<Niveau> optionalNiveau = niveauRepository.findById(id);
-				if(optionalNiveau.isPresent()) {
-					return optionalNiveau.get();
-					}
-			return null;
-		}
-		
-	//Delete niveau
+	public Niveau findById(Long id) {
+
+		return niveauRepository.findById(id).get();
+	}
+
+	// Delete niveau
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		niveauRepository.deleteById(id);
-		/*list.remove(id);*/
-		}
-	
-	//Save/Create a new niveau(save id id==NULL)
+		/* list.remove(id); */
+	}
+
+	// Save/Create a new niveau(save id id==NULL)
 	@Override
 	public void create(Niveau niveau) {
 		niveauRepository.save(niveau);
-		
+
 	}
-	//Update niveau
+
+	// Update niveau
 	@Override
 	public void update(Niveau niveau) {
 		niveauRepository.save(niveau);
-		
+
 	}
 
 }

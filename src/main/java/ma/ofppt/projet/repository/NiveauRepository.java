@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import ma.ofppt.projet.entity.Niveau;
 
-public interface NiveauRepository extends JpaRepository<Niveau, Integer>{
+public interface NiveauRepository extends JpaRepository<Niveau, Long>{
 
 }

@@ -12,48 +12,44 @@ import ma.ofppt.projet.entity.Enseignant;
 import ma.ofppt.projet.repository.EnseignantRepository;
 
 @Service
-public class EnseignantService implements IDao<Enseignant>{
+public class EnseignantService implements IDao<Enseignant> {
 	@Autowired
 	private EnseignantRepository enseignantRepository;
-	
-	//Return all Enseignant
+
+	// Return all Enseignant
 	@Override
 	public List<Enseignant> getAll() {
 		List<Enseignant> enseignantList = new ArrayList<>();
-		enseignantRepository.findAll().forEach(enseignantList::add);
+		enseignantRepository.findAll();
 		return enseignantList;
-		/*return this.list;*/
-		}
+		/* return this.list; */
+	}
 
-	//Find Enseignant By it's ID	
+	// Find Enseignant By it's ID
 	@Override
-	public Enseignant findById(int id) {
-			Optional<Enseignant> optionalEnseignant = enseignantRepository.findById(id);
-				if(optionalEnseignant.isPresent()) {
-					return optionalEnseignant.get();
-					}
-			return null;
-		}
-		
-	//Delete Enseignant
+	public Enseignant findById(Long id) {
+		return enseignantRepository.findById(id).get();
+	}
+
+	// Delete Enseignant
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		enseignantRepository.deleteById(id);
-		/*list.remove(id);*/
-		}
-	
-	//Save/Create a new Jury (save id id==NULL)
+		/* list.remove(id); */
+	}
+
+	// Save/Create a new Jury (save id id==NULL)
 	@Override
 	public void create(Enseignant enseignant) {
 		enseignantRepository.save(enseignant);
-		
+
 	}
-	//Update jury
+
+	// Update jury
 	@Override
 	public void update(Enseignant enseignant) {
 		enseignantRepository.save(enseignant);
-		
-	}
 
+	}
 
 }

@@ -4,7 +4,12 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,34 +21,35 @@ import ma.ofppt.projet.service.NiveauService;
 
 
 @RestController
+@RequestMapping("/api/niveau")
+@CrossOrigin
 public class NiveauController {
 	@Autowired
 	private NiveauService niveauService;
 	
-	
-	@RequestMapping(value="/niveau/update", method = RequestMethod.PUT )
+	@PutMapping("/update")
 	public void updateNiveau(@RequestBody Niveau niveau) {
 		niveauService.update(niveau);
 	}
 	
-	@RequestMapping(value="/niveau/save", method = {RequestMethod.POST} )
+	@PostMapping("/add")
 	public void saveNiveau(@RequestBody Niveau niveau) {
 		niveauService.create(niveau);
 		
 	}
 	
-	@RequestMapping(value="/niveau/all", method= RequestMethod.GET)
+	@GetMapping
 	public List<Niveau> getAllNiveau() { 
 	 	return niveauService.getAll();
 	}
 	
-	@RequestMapping(value="/niveau/find/{id}", method= RequestMethod.GET)
-	public Niveau findNiveau(@PathVariable int id) {
+	@GetMapping("/find/{id}")
+	public Niveau findNiveau(@PathVariable Long id) {
 		return niveauService.findById(id);
 	}
 	
-	@RequestMapping(value="/niveau/delete/{id}",method= RequestMethod.DELETE )
-	public void deleteNiveau(@PathVariable int id) {
+	@DeleteMapping("/delete")
+	public void deleteNiveau(@PathVariable Long id) {
 		niveauService.delete(id);
 	}
 		

@@ -33,12 +33,12 @@ public class DepartementController {
 	}
 	
 	@RequestMapping(value="/departement/find/{id}", method= RequestMethod.GET)
-	public Departement findDepartement(@PathVariable int id) {
+	public Departement findDepartement(@PathVariable Long id) {
 		return departementService.findById(id);
 	}
 	
 	@RequestMapping(value="/departement/delete/{id}",method= RequestMethod.DELETE )
-	public void deleteAnnee(@PathVariable int id) {
+	public void deleteAnnee(@PathVariable Long id) {
 		departementService.delete(id);
 	}
 		

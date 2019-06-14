@@ -23,24 +23,21 @@ public class SessionService implements IDao<Session> {
 	@Override
 	public List<Session> getAll() {
 		List<Session> sessionList = new ArrayList<>();
-		sessionRepository.findAll().forEach(sessionList::add);
+		sessionRepository.findAll();
 		return sessionList;
 		/*return this.list;*/
 		}
 
 	//FindJury By it's ID	
 	@Override
-	public Session findById(int id) {
-			Optional<Session> optionalSession = sessionRepository.findById(id);
-				if(optionalSession.isPresent()) {
-					return optionalSession.get();
-					}
-			return null;
+	public Session findById(Long id) {
+			
+			return sessionRepository.findById(id).get();
 		}
 		
 	//Delete Jury
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		sessionRepository.deleteById(id);
 		/*list.remove(id);*/
 		}

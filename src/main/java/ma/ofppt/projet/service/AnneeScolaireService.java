@@ -29,7 +29,7 @@ public class AnneeScolaireService implements IDao<AnneeScolaire> {
 
 		//Find year By it's ID	
 		@Override
-		public AnneeScolaire findById(int id) {
+		public AnneeScolaire findById(Long id) {
 				Optional<AnneeScolaire> optionalAnneeScolaire = anneeScolaireRepository.findById(id);
 					if(optionalAnneeScolaire.isPresent()) {
 						return optionalAnneeScolaire.get();
@@ -39,7 +39,7 @@ public class AnneeScolaireService implements IDao<AnneeScolaire> {
 			
 		//Delete Year
 		@Override
-		public void delete(int id) {
+		public void delete(Long id) {
 			anneeScolaireRepository.deleteById(id);
 			/*list.remove(id);*/
 			}

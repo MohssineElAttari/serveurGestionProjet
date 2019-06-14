@@ -29,18 +29,15 @@ public class NoteService implements IDao<Note> {
 
 	//Find Note By it's ID	
 	@Override
-	public Note findById(int id) {
-			Optional<Note> optionalNote = noteRepository.findById((float) id);
-				if(optionalNote.isPresent()) {
-					return optionalNote.get();
-					}
-			return null;
+	public Note findById(Long id) {
+			
+			return noteRepository.findById(id).get();
 		}
 		
 	//Delete Jury
 	@Override
-	public void delete(int id) {
-		noteRepository.deleteById((float)id);
+	public void delete(Long id) {
+		noteRepository.deleteById(id);
 		/*list.remove(id);*/
 		}
 	

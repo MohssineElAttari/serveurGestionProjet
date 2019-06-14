@@ -38,12 +38,12 @@ public class GroupeController {
 	}
 	
 	@RequestMapping(value="/groupe/find/{id}", method= RequestMethod.GET)
-	public Groupe findgroupe(@PathVariable int id) {
+	public Groupe findgroupe(@PathVariable Long id) {
 		return groupeS.findById(id);
 	}
 	
 	@RequestMapping(value="/groupe/delete/{id}",method= RequestMethod.DELETE )
-	public void deleteGroupe(@PathVariable int id) {
+	public void deleteGroupe(@PathVariable Long id) {
 		groupeS.delete(id);
 	}
 		

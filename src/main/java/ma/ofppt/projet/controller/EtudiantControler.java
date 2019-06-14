@@ -3,6 +3,7 @@ package ma.ofppt.projet.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import ma.ofppt.projet.entity.Etudiant;
 import ma.ofppt.projet.service.EtudiantService;
 
 @RestController
+@CrossOrigin
 public class EtudiantControler {
 	@Autowired
 	private EtudiantService etudiantService;
@@ -35,12 +37,12 @@ public class EtudiantControler {
 	}
 	
 	@RequestMapping(value="/etudiant/find/{id}", method= RequestMethod.GET)
-	public Etudiant findEtudiant(@PathVariable int id) {
+	public Etudiant findEtudiant(@PathVariable Long id) {
 		return etudiantService.findById(id);
 	}
 	
 	@RequestMapping(value="/etudiant/delete/{id}",method= RequestMethod.DELETE )
-	public void deleteEtudiant(@PathVariable int id) {
+	public void deleteEtudiant(@PathVariable Long id) {
 		etudiantService.delete(id);
 	}
 		

@@ -35,12 +35,12 @@ public class CriteresController {
 	}
 	
 	@RequestMapping(value="/criteres/find/{id}", method= RequestMethod.GET)
-	public Criteres findCriteres(@PathVariable int id) {
+	public Criteres findCriteres(@PathVariable Long id) {
 		return criteresService.findById(id);
 	}
 	
 	@RequestMapping(value="/criteres/delete/{id}",method= RequestMethod.DELETE )
-	public void deleteCriteres(@PathVariable int id) {
+	public void deleteCriteres(@PathVariable Long id) {
 		criteresService.delete(id);
 	}
 		

@@ -30,7 +30,7 @@ public class CriteresService implements IDao<Criteres>{
 
 	//Find year By it's ID	
 	@Override
-	public Criteres findById(int id) {
+	public Criteres findById(Long id) {
 			Optional<Criteres> optionalCriteres = criteresRepository.findById(id);
 				if(optionalCriteres.isPresent()) {
 					return optionalCriteres.get();
@@ -40,7 +40,7 @@ public class CriteresService implements IDao<Criteres>{
 		
 	//Delete Year
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		criteresRepository.deleteById(id);
 		}
 	

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import ma.ofppt.projet.entity.Filiere;
 
-public interface FiliereRepository extends JpaRepository<Filiere, Integer>{ 
+public interface FiliereRepository extends JpaRepository<Filiere, Long>{ 
 
 }

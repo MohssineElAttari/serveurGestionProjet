@@ -36,12 +36,12 @@ public class EnseignantController {
 	}
 	
 	@RequestMapping(value="/enseignant/find/{id}", method= RequestMethod.GET)
-	public Enseignant findEnseignant(@PathVariable int id) {
+	public Enseignant findEnseignant(@PathVariable Long id) {
 		return enseignantService.findById(id);
 	}
 	
 	@RequestMapping(value="/enseignant/delete/{id}",method= RequestMethod.DELETE )
-	public void deleteEnseignant(@PathVariable int id) {
+	public void deleteEnseignant(@PathVariable Long id) {
 		enseignantService.delete(id);
 	}
 		

@@ -36,12 +36,12 @@ public class JuryConroller {
 	}
 	
 	@RequestMapping(value="/jury/find/{id}", method= RequestMethod.GET)
-	public Jury findJury(@PathVariable int id) {
+	public Jury findJury(@PathVariable Long id) {
 		return juryService.findById(id);
 	}
 	
 	@RequestMapping(value="/jury/delete/{id}",method= RequestMethod.DELETE )
-	public void deleteJury(@PathVariable int id) {
+	public void deleteJury(@PathVariable Long id) {
 		juryService.delete(id);
 	}
 		
