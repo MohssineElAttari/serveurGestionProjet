@@ -1,8 +1,6 @@
 package ma.ofppt.projet.entity;
 
-import java.sql.Date;
-
-
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +13,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Personne {
+public abstract class Personne {
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 	protected Number matricule;
 	protected String nom;
@@ -27,12 +25,13 @@ public class Personne {
 	protected String adresse;
 	protected Number tel;
 	protected String statut;
+
 	public Personne() {
 		super();
 	}
-	
-	public Personne(Number matricule, String nom, String prenom, Date date_naissance, String adresse,
-			Number tel, String statut) {
+
+	public Personne(Number matricule, String nom, String prenom, Date date_naissance, String adresse, Number tel,
+			String statut) {
 		super();
 		this.matricule = matricule;
 		this.nom = nom;
@@ -42,54 +41,69 @@ public class Personne {
 		this.tel = tel;
 		this.statut = statut;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public Number getMatricule() {
 		return matricule;
 	}
+
 	public void setMatricule(Number matricule) {
 		this.matricule = matricule;
 	}
+
 	public String getPrenom() {
 		return prenom;
 	}
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
 	public Date getDate_naissance() {
 		return date_naissance;
 	}
+
 	public void setDate_naissance(Date date_naissance) {
 		this.date_naissance = date_naissance;
 	}
+
 	public String getAdresse() {
 		return adresse;
 	}
+
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
+
 	public Number getTel() {
 		return tel;
 	}
+
 	public void setTel(Number tel) {
 		this.tel = tel;
 	}
+
 	public String getStatut() {
 		return statut;
 	}
+
 	public void setStatut(String statut) {
 		this.statut = statut;
 	}
-	
 
 }

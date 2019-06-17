@@ -18,8 +18,8 @@ public class Criteres {
 	private Integer min;
 	private Integer max;
 	
-	@OneToMany (mappedBy = "criteres")
-	private List<Note> note;
+//	@OneToMany (mappedBy = "criteres")
+//	private List<Note> note;
 	
 	@ManyToOne
 	@JoinColumn(name="sessionId")

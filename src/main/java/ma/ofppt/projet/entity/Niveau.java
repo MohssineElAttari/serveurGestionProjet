@@ -18,7 +18,7 @@ public class Niveau {
 	private String nom;
 	
 	@ManyToOne
-	@JoinColumn(name="filiereId")
+	@JoinColumn(name="filiere_id")
 	private Filiere filiere;
 	
 	@OneToMany(mappedBy = "niveau")

@@ -2,14 +2,15 @@ package ma.ofppt.projet.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+@Entity
 public class EtudiantProjet {
 	@EmbeddedId
-	private EtudiantProjetKey id;
+	private EtudiantProjetKey pk;
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "etudiant_id", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "etudiant_id", referencedColumnName = "etudiantId", insertable = false, updatable = false)
 	private Etudiant etudiant;
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "projet_id", referencedColumnName = "id", insertable = false, updatable = false)
@@ -24,20 +25,20 @@ public class EtudiantProjet {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EtudiantProjet(EtudiantProjetKey id, Etudiant etudiant, Projet projet, AnneeScolaire anneeScoEtuProj) {
+	public EtudiantProjet(EtudiantProjetKey pk, Etudiant etudiant, Projet projet, AnneeScolaire anneeScoEtuProj) {
 		super();
-		this.id = id;
+		this.pk = pk;
 		this.etudiant = etudiant;
 		this.projet = projet;
 		this.anneeScoEtuProj = anneeScoEtuProj;
 	}
 
 	public EtudiantProjetKey getId() {
-		return id;
+		return pk;
 	}
 
-	public void setId(EtudiantProjetKey id) {
-		this.id = id;
+	public void setId(EtudiantProjetKey pk) {
+		this.pk = pk;
 	}
 
 	public Etudiant getEtudiant() {
@@ -63,8 +64,5 @@ public class EtudiantProjet {
 	public void setAnneeScoEtuProj(AnneeScolaire anneeScoEtuProj) {
 		this.anneeScoEtuProj = anneeScoEtuProj;
 	}
-	
-	
-	
 
 }

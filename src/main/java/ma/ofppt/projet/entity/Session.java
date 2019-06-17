@@ -41,6 +41,18 @@ public class Session {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+	public List<Projet> getProjet() {
+		return projet;
+	}
+	public void setProjet(List<Projet> projet) {
+		this.projet = projet;
+	}
+	public List<Criteres> getCriteres() {
+		return criteres;
+	}
+	public void setCriteres(List<Criteres> criteres) {
+		this.criteres = criteres;
+	}
 	
 	
 }

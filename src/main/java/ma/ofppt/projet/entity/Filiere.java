@@ -26,19 +26,19 @@ public class Filiere  {
 	@JoinColumn(name="departement_id")
 	private Departement departement;
 	
-	@OneToMany(mappedBy = "filiere_id")
+	@OneToMany(mappedBy = "filiere")
 	private List<Niveau> niveau;
 	
-	@ManyToMany
-	@JoinTable(
-			name="FiliereChef",
-			joinColumns = @JoinColumn(name="filiere_id"),
-			inverseJoinColumns = @JoinColumn(name="enseignant_id"))
-	Set<Enseignant> avoirChefFiliere;
+//	@ManyToMany
+//	@JoinTable(
+//			name="FiliereChef",
+//			joinColumns = @JoinColumn(name="filiere_id"),
+//			inverseJoinColumns = @JoinColumn(name="enseignant_id"))
+//	Set<Enseignant> avoirChefFiliere;
 	
-	@ManyToOne
-	@JoinColumn(name="anneeScolaire_id")
-	private AnneeScolaire anneeScoFilChef;
+//	@ManyToOne
+//	@JoinColumn(name="anneeScolaire_id")
+//	private AnneeScolaire anneeScoFilChef;
 	
 	public Filiere() {
 		super();

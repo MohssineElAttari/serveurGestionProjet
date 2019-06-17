@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Note {
@@ -21,11 +22,11 @@ public class Note {
 	@JoinColumn(name = "critereId")
 	private Criteres criteres;
 
-	@ManyToMany(mappedBy = "noter")
-	Set<Enseignant> notedonee;
+	@OneToMany(mappedBy = "enseingnant")
+	Set<EnseignantNote> enseignants;
 
-	@ManyToMany(mappedBy = "belongsTo")
-	Set<Projet> AvoirNote;
+	@OneToMany(mappedBy = "note_id")
+	Set<ProjetNote> projetNote;
 
 	public float getNote() {
 		return note;
@@ -40,12 +41,10 @@ public class Note {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Note(float note, Criteres criteres, Set<Enseignant> notedonee, Set<Projet> avoirNote) {
+	public Note(float note, Criteres criteres) {
 		super();
 		this.note = note;
 		this.criteres = criteres;
-		this.notedonee = notedonee;
-		AvoirNote = avoirNote;
 	}
 
 	public Long getId() {
@@ -64,20 +63,5 @@ public class Note {
 		this.criteres = criteres;
 	}
 
-	public Set<Enseignant> getNotedonee() {
-		return notedonee;
-	}
-
-	public void setNotedonee(Set<Enseignant> notedonee) {
-		this.notedonee = notedonee;
-	}
-
-	public Set<Projet> getAvoirNote() {
-		return AvoirNote;
-	}
-
-	public void setAvoirNote(Set<Projet> avoirNote) {
-		AvoirNote = avoirNote;
-	}
-
+	
 }

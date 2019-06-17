@@ -64,10 +64,5 @@ public class ProjetNote {
 
 	public void setAnneeScoProNote(AnneeScolaire anneeScoProNote) {
 		this.anneeScoProNote = anneeScoProNote;
-	}
-
-	
-	
-	
-	
+	}	
 }

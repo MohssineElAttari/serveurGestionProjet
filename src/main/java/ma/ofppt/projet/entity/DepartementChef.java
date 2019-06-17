@@ -10,16 +10,16 @@ public class DepartementChef {
 	private DepartementChefKey id;
 
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name ="departement", referencedColumnName = "id",insertable = false , updatable = false)
+	@JoinColumn(name ="departement_id", referencedColumnName = "id",insertable = false , updatable = false)
 	private Departement departement;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "chef" , referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "enseignant_id" , referencedColumnName = "enseignantId", insertable = false, updatable = false)
 	private Enseignant enseignant;
 	
 	@ManyToOne
 	@JoinColumn(name = "anneeScolaire_id")
-	private AnneeScolaire anneeScoDep;
+	private AnneeScolaire anneeChefProj;
 	
 	public DepartementChef() {
 		super();
@@ -55,6 +55,14 @@ public class DepartementChef {
 
 	public void setEnseignant(Enseignant enseignant) {
 		this.enseignant = enseignant;
+	}
+
+	public AnneeScolaire getAnneeChefProj() {
+		return anneeChefProj;
+	}
+
+	public void setAnneeChefProj(AnneeScolaire anneeChefProj) {
+		this.anneeChefProj = anneeChefProj;
 	}
 	
 	

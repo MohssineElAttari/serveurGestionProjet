@@ -6,18 +6,16 @@ import javax.persistence.Embeddable;
 public class FiliereChefKey {
 	private Long filiere_id;
 	private Long chef_id;
-	private AnneeScolaire anneeScolaire;
 
 	public FiliereChefKey() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public FiliereChefKey(Long filiere_id, Long chef_id, AnneeScolaire anneeScolaire) {
+	public FiliereChefKey(Long filiere_id, Long chef_id) {
 		super();
 		this.filiere_id = filiere_id;
 		this.chef_id = chef_id;
-		this.anneeScolaire = anneeScolaire;
 	}
 
 	public Long getFiliere_id() {
@@ -34,14 +32,6 @@ public class FiliereChefKey {
 
 	public void setChef_id(Long chef_id) {
 		this.chef_id = chef_id;
-	}
-
-	public AnneeScolaire getAnneeScolaire() {
-		return anneeScolaire;
-	}
-
-	public void setDateDebut(AnneeScolaire anneeScolaire) {
-		this.anneeScolaire = anneeScolaire;
 	}
 
 }

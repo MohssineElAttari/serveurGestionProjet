@@ -1,35 +1,44 @@
 package ma.ofppt.projet.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
 @Entity
 public class EnseignantJury {
 	@EmbeddedId
-	EnseignantJuryKey	id;
-	
-	@ManyToOne
-	@MapsId("enseignant_id")
-	@JoinColumn(name="enseignant_id")
+	EnseignantJuryKey id;
+
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "enseignant_id", referencedColumnName = "enseignantId", insertable = false, updatable = false)
 	Enseignant enseignant;
 
-	@ManyToOne
-	@MapsId("jury_id")
-	@JoinColumn(name="jury_id")
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "jury_id", referencedColumnName = "id", insertable = false, updatable = false)
 	Jury jury;
-	
+
+	private String role;
+
 	@ManyToOne
-	@JoinColumn(name="anneeScolaire_id")
-	private AnneeScolaire anneeScoEnsJury;
-	
-	@ManyToOne
-	@JoinColumn(name="anneeScolaire_id")
-	private AnneeScolaire anneeScoEtuProj;
-	
-	String role;
+	@JoinColumn(name = "anneeScolaireId")
+	private AnneeScolaire anneeScolaire;
+
+	public EnseignantJury() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public EnseignantJury(EnseignantJuryKey id, Enseignant enseignant, Jury jury, String role) {
+		super();
+		this.id = id;
+		this.enseignant = enseignant;
+		this.jury = jury;
+		this.role = role;
+	}
 
 	public EnseignantJuryKey getId() {
 		return id;
@@ -63,17 +72,12 @@ public class EnseignantJury {
 		this.role = role;
 	}
 
-	public EnseignantJury(EnseignantJuryKey id, Enseignant enseignant, Jury jury, String role) {
-		super();
-		this.id = id;
-		this.enseignant = enseignant;
-		this.jury = jury;
-		this.role = role;
+	public AnneeScolaire getAnneeScolaire() {
+		return anneeScolaire;
 	}
 
-	public EnseignantJury() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setAnneeScolaire(AnneeScolaire anneeScolaire) {
+		this.anneeScolaire = anneeScolaire;
 	}
-	
+
 }

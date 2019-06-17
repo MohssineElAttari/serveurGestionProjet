@@ -1,16 +1,15 @@
 package ma.ofppt.projet.entity;
-import java.sql.Date;
 
-//import java.util.List;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import antlr.collections.List;
-
-//import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 @Entity
@@ -19,20 +18,20 @@ public class AnneeScolaire {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="anneeScolaireId")
 	private Long id;
-	private Date annee;
+	private String annee;
 	
-	@OneToMany(mappedBy = "anneeScoDep")//
-	private List departementChef;
-	@OneToMany(mappedBy = "anneeScoEnsJury")
-	private List enseignantJury;
-	@OneToMany(mappedBy = "anneeScoEtuProj")
-	private List etudiantProjet;
-	@OneToMany(mappedBy = "anneeScoFilChef")
-	private List filiereChef;
-	@OneToMany(mappedBy = "anneeScoProNote")//
-	private List projetNote;
-	@OneToMany(mappedBy = "anneeScoEnsNote")
-	private List enseignantnote;
+//	@OneToMany(mappedBy = "anneeScoDep")
+//	private List<DepartementChef> departementChef;
+//	@OneToMany(mappedBy = "anneeScoEnsJury")
+//	private List enseignantJury;
+//	@OneToMany(mappedBy = "anneeScoEtuProj")
+//	private List<EtudiantProjet> etudiantProjet;
+//	@OneToMany(mappedBy = "anneeScoFilChef")
+//	private List filiereChef;
+//	@OneToMany(mappedBy = "anneeScoProNote")
+//	private List projetNote;
+//	@OneToMany(mappedBy = "anneeScoEnsNote")
+//	private List enseignantnote;
 	
 	public Long getId() {
 		return id;
@@ -40,13 +39,13 @@ public class AnneeScolaire {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getAnnee() {
+	public String getAnnee() {
 		return annee;
 	}
-	public void setAnnee(Date annee) {
+	public void setAnnee(String annee) {
 		this.annee = annee;
 	}
-	public AnneeScolaire(Long id, Date annee) {
+	public AnneeScolaire(Long id, String annee) {
 		super();
 		this.id = id;
 		this.annee = annee;
