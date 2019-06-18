@@ -1,6 +1,6 @@
 package ma.ofppt.projet.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,11 +22,11 @@ public class Note {
 	@JoinColumn(name = "critereId")
 	private Criteres criteres;
 
-	@OneToMany(mappedBy = "enseingnant")
-	Set<EnseignantNote> enseignants;
+	@OneToMany(mappedBy = "note")
+	List<EnseignantNote> enseignants;
 
-	@OneToMany(mappedBy = "note_id")
-	Set<ProjetNote> projetNote;
+	@OneToMany(mappedBy = "note")
+	List<ProjetNote> projetNote;
 
 	public float getNote() {
 		return note;
@@ -63,5 +63,4 @@ public class Note {
 		this.criteres = criteres;
 	}
 
-	
 }

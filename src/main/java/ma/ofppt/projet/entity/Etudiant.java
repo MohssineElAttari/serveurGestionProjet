@@ -22,8 +22,24 @@ public class Etudiant extends Personne {
 	@JoinColumn(name = "groupeId")
 	private Groupe groupe;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "etudiant", cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "etudiant", cascade = CascadeType.ALL)
 	private List<EtudiantProjet> etudiantProjetss;
+
+	public Etudiant() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Etudiant(Number matricule, String nom, String prenom, Date date_naissance, String adresse, Number tel,
+			String statut) {
+		super(matricule, nom, prenom, date_naissance, adresse, tel, statut);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Etudiant(String cne) {
+		super();
+		this.cne = cne;
+	}
 
 //	@ManyToMany
 //	@JoinTable(
@@ -42,22 +58,6 @@ public class Etudiant extends Personne {
 	}
 
 	public void setCne(String cne) {
-		this.cne = cne;
-	}
-
-	public Etudiant() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Etudiant(Number matricule, String nom, String prenom, Date date_naissance, String adresse, Number tel,
-			String statut) {
-		super(matricule, nom, prenom, date_naissance, adresse, tel, statut);
-		// TODO Auto-generated constructor stub
-	}
-
-	public Etudiant(String cne) {
-		super();
 		this.cne = cne;
 	}
 

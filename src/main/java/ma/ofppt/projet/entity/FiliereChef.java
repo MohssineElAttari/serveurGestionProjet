@@ -2,9 +2,10 @@ package ma.ofppt.projet.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+@Entity
 public class FiliereChef {
 	@EmbeddedId
 	private FiliereChefKey id;

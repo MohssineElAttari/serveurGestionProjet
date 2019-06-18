@@ -2,25 +2,26 @@ package ma.ofppt.projet.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+@Entity
 public class DepartementChef {
 	@EmbeddedId
 	private DepartementChefKey id;
 
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name ="departement_id", referencedColumnName = "id",insertable = false , updatable = false)
+	@JoinColumn(name = "departement_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private Departement departement;
-	
+
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "enseignant_id" , referencedColumnName = "enseignantId", insertable = false, updatable = false)
+	@JoinColumn(name = "enseignant_id", referencedColumnName = "enseignantId", insertable = false, updatable = false)
 	private Enseignant enseignant;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "anneeScolaire_id")
 	private AnneeScolaire anneeChefProj;
-	
+
 	public DepartementChef() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -64,6 +65,5 @@ public class DepartementChef {
 	public void setAnneeChefProj(AnneeScolaire anneeChefProj) {
 		this.anneeChefProj = anneeChefProj;
 	}
-	
-	
+
 }

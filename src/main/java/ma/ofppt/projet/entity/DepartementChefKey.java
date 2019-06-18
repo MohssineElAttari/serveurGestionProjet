@@ -1,6 +1,12 @@
 package ma.ofppt.projet.entity;
 
-public class DepartementChefKey {
+import java.io.Serializable;
+
+public class DepartementChefKey implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long departement_id;
 	private Long enseignant_id;
 

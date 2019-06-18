@@ -1,9 +1,15 @@
 package ma.ofppt.projet.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class FiliereChefKey {
+public class FiliereChefKey implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long filiere_id;
 	private Long chef_id;
 

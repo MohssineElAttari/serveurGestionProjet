@@ -1,9 +1,16 @@
 package ma.ofppt.projet.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class EnseignantNoteKey {
+public class EnseignantNoteKey implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Long enseignant_id;
 
 	private Long note_id;
